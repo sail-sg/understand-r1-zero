@@ -1,8 +1,8 @@
-import os
 import json
+import os
+
 import fire
 from openai import OpenAI
-
 
 """
 Description:
@@ -11,7 +11,7 @@ Description:
 Example usage:
 python sr_detection.py --file_name {fn}_template_{template}_temp{temperature}_topp{top_p}_n{n_samples}.json --n_samples 8
 """
-       
+
 
 def main(file_name: str = "output_Qwen_Qwen2.5-Math-7B.json", n_samples: int = 1):
     output = json.load(open(file_name))
@@ -56,26 +56,46 @@ Your response should first provide a **very brief explanation** of your analysis
 """
 
     # api key, model, and parameters
-    os.environ['OPENAI_API_KEY'] = "YOUR_API_KEY"
+    os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
     client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),   # This is the default and can be omitted
+        api_key=os.environ.get(
+            "OPENAI_API_KEY"
+        ),  # This is the default and can be omitted
     )
-    
+
     # choose LLM model and parameters
-    llm_model = 'gpt-4o-mini-2024-07-18'
+    llm_model = "gpt-4o-mini-2024-07-18"
     llm_temp = 0.0
     llm_max_tokens = 300
 
     n_samples = int(n_samples)
     count_signalwords = 0
 
-    print(f'Detecting the self-reflection in {file_name}')
+    print(f"Detecting the self-reflection in {file_name}")
     for idx, o in enumerate(output):
-        o['idx'] = idx
+        o["idx"] = idx
         for j in range(n_samples):
             # 1. keyword-based detection
-            keywords_pool = {"recheck", "rethink", "reassess", "reevaluate", "re-evaluate", "reevaluation", "re-examine", "reexamine", "reconsider", "reanalyze", "double-check", "check again", "think again", "verify again", "go over the steps"}
-            matched_keywords = {word for word in keywords_pool if word in o[f"output_{j}"].lower()}
+            keywords_pool = {
+                "recheck",
+                "rethink",
+                "reassess",
+                "reevaluate",
+                "re-evaluate",
+                "reevaluation",
+                "re-examine",
+                "reexamine",
+                "reconsider",
+                "reanalyze",
+                "double-check",
+                "check again",
+                "think again",
+                "verify again",
+                "go over the steps",
+            }
+            matched_keywords = {
+                word for word in keywords_pool if word in o[f"output_{j}"].lower()
+            }
             if matched_keywords:
                 count_signalwords += 1
                 keyword_appear = ", ".join(matched_keywords)  # Convert set to a string
@@ -83,28 +103,26 @@ Your response should first provide a **very brief explanation** of your analysis
                 keyword_appear = ""
 
             # 2. llm-based detection
-            prompt = instruction.format(question=o["question"], response=o[f"output_{j}"])    
+            prompt = instruction.format(
+                question=o["question"], response=o[f"output_{j}"]
+            )
             chat_completion = client.chat.completions.create(
                 model=llm_model,
                 temperature=llm_temp,
                 max_tokens=llm_max_tokens,
-                messages=[{
-                        "role": "user",
-                        "content": prompt,
-                    }],
+                messages=[{"role": "user", "content": prompt,}],
             )
             llm_detection = chat_completion.choices[0].message.content
-        
+
             # add llm_detection to the output
-            o[f'keyword_detection_{j}'] = keyword_appear
-            o[f'llm_detection_{j}'] = llm_detection
+            o[f"keyword_detection_{j}"] = keyword_appear
+            o[f"llm_detection_{j}"] = llm_detection
 
         # save the file
         file_name = file_name.replace(".json", "_sr.json")
         json.dump(
-            output,
-            open(f"{file_name}", "w"),
-            indent=4,
+            output, open(f"{file_name}", "w"), indent=4,
         )
+
 
 fire.Fire(main)

@@ -1,8 +1,8 @@
-import os
 import json
+import os
+
 import fire
 from openai import OpenAI
-
 
 """
 Description:
@@ -11,7 +11,7 @@ Description:
 Example usage:
 python answering_ability.py --file_name deepseek_v3_base.json
 """
-              
+
 
 def main(file_name: str = "deepseek_v3_base.json"):
     output = json.load(open(file_name))
@@ -35,13 +35,15 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
 """
 
     # api key, model, and parameters
-    os.environ['OPENAI_API_KEY'] = "YOUR_API_KEY"
+    os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
     client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
+        api_key=os.environ.get(
+            "OPENAI_API_KEY"
+        ),  # This is the default and can be omitted
     )
-    
+
     # choose LLM model and parameters
-    llm_model = 'gpt-4o-mini-2024-07-18'
+    llm_model = "gpt-4o-mini-2024-07-18"
     llm_temp = 0.0
     llm_max_tokens = 100
 
@@ -49,9 +51,9 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
     question_answering = 0
     question_other = 0
 
-    print(f'Evaluating the question answering ability in {file_name}')
+    print(f"Evaluating the question answering ability in {file_name}")
     for idx, o in enumerate(output):
-        o['idx'] = idx
+        o["idx"] = idx
 
         # llm-based detection for question answering ability
         prompt = instruction.format(question=o[f"input"], response=o[f"output"])
@@ -59,13 +61,10 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
             model=llm_model,
             temperature=llm_temp,
             max_tokens=llm_max_tokens,
-            messages=[{
-                    "role": "user",
-                    "content": prompt,
-                }],
+            messages=[{"role": "user", "content": prompt,}],
         )
         response_text = chat_completion.choices[0].message.content
-        
+
         # check the response: if 0 then question completion, if 1 then question answering
         if response_text.startswith("0"):
             question_completion += 1
@@ -75,7 +74,7 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
             question_other += 1
 
         # append the result
-        o["llm_detection"] =  response_text
+        o["llm_detection"] = response_text
 
     # results
     res = {
@@ -83,14 +82,13 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
         "question_answering": question_answering,
         "other": question_other,
     }
-    print(f'answering ability: {res}')
+    print(f"answering ability: {res}")
 
     # save the file
     file_name = file_name.replace(".json", "_ab.json")
     json.dump(
-        output,
-        open(f"{file_name}", "w"),
-        indent=4,
+        output, open(f"{file_name}", "w"), indent=4,
     )
+
 
 fire.Fire(main)
