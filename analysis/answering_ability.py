@@ -61,7 +61,12 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
             model=llm_model,
             temperature=llm_temp,
             max_tokens=llm_max_tokens,
-            messages=[{"role": "user", "content": prompt,}],
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
         )
         response_text = chat_completion.choices[0].message.content
 
@@ -87,7 +92,9 @@ Your response must start with a **single integer** (0 or 1), followed by a **bri
     # save the file
     file_name = file_name.replace(".json", "_ab.json")
     json.dump(
-        output, open(f"{file_name}", "w"), indent=4,
+        output,
+        open(f"{file_name}", "w"),
+        indent=4,
     )
 
 

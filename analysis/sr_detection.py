@@ -110,7 +110,12 @@ Your response should first provide a **very brief explanation** of your analysis
                 model=llm_model,
                 temperature=llm_temp,
                 max_tokens=llm_max_tokens,
-                messages=[{"role": "user", "content": prompt,}],
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
             )
             llm_detection = chat_completion.choices[0].message.content
 
@@ -121,7 +126,9 @@ Your response should first provide a **very brief explanation** of your analysis
         # save the file
         file_name = file_name.replace(".json", "_sr.json")
         json.dump(
-            output, open(f"{file_name}", "w"), indent=4,
+            output,
+            open(f"{file_name}", "w"),
+            indent=4,
         )
 
 
