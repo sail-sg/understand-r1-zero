@@ -2,6 +2,12 @@
 
 # Understanding R1-Zero-Like Training: A Critical Perspective
 
+[Zichen Liu*†](https://lkevinzc.github.io/), [Changyu Chen*](https://cameron-chen.github.io/), [Wenjun Li*](https://wenjunli-0.github.io/), [Penghui Qi*](https://scholar.google.com/citations?user=CLRsGEMAAAAJ&hl=en)
+
+[Tianyu Pang](https://p2333.github.io/), [Chao Du](https://duchao0726.github.io/), [Wee Sun Lee](https://scholar.google.com/citations?user=8PCrLgwAAAAJ&hl=en), [Min Lin](https://scholar.google.com.sg/citations?user=BGONmkIAAAAJ&hl=en)
+
+*Core Contributors, †Project Lead
+
 [![Paper](https://img.shields.io/badge/Paper-8CA1AF?logo=readthedocs&logoColor=white)](./understand-r1-zero.pdf)
 
 [![Github](https://img.shields.io/badge/Understand%20R1%20Zero-000000?style=for-the-badge&logo=github&logoColor=000&logoColor=white)](https://github.com/sail-sg/understand-r1-zero)  [![Hugging Face Collection](https://img.shields.io/badge/Model_Collection-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
@@ -145,6 +151,8 @@ python train_zero_math.py \
     --generate_max_length 3000 \
     --save_steps -1 \
     --train_batch_size 128 \
+    --train_batch_size_per_device 1 \
+    --mini_train_batch_size_per_device 1 \
     --rollout_batch_size 128 \
     --rollout_batch_size_per_device 16 \
     --pi_buffer_maxlen_per_device 128 \
@@ -191,4 +199,4 @@ If you find our work useful for your research, please consider citing:
 * This work is supported by [Sea AI Lab](https://sail.sea.com/) for computing resources.
 * The training codes are built on [Oat](https://github.com/sail-sg/oat), which employs [vLLM](https://github.com/vllm-project/vllm), [DeepSpeed](https://github.com/microsoft/DeepSpeed) and [launchpad](https://github.com/google-deepmind/launchpad).
 * The base models are from [Qwen2.5-Math](https://huggingface.co/Qwen/Qwen2.5-Math-7B), [Llama](https://huggingface.co/meta-llama/Llama-3.2-3B), and [DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-V3-Base).
-* We thank Qingfeng Lan for his time in thoroughly reviewing our code.
+* We thank [Qingfeng Lan](https://lancelqf.github.io/about/) for his time in thoroughly reviewing our code.
