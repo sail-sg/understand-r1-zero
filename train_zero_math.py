@@ -30,6 +30,7 @@ from oat.interface import get_program, lp
 from oat.oracles.base import PreferenceOracleBase, RewardOracleBase
 from oat.types import Metric, TrajectoryData
 from oat.utils.data import PromptDataset, load_data_from_disk_or_hf
+from oat.utils.ops import masked_mean, masked_sum
 from torch.utils.data import DataLoader
 
 from datasets import load_from_disk
@@ -281,6 +282,21 @@ class ZeroMathLearner(PPOLearner):
                 k: v for k, v in self.eval_dataset_dict.items() if k in args.test_split
             }
         self.args = args
+        # Dr. GRPO Modification 1: Remove length bias by using masked_sum with a constant normalizer:
+        self.masked_aggregator = (
+            functools.partial(masked_sum, constant_normalizer=args.generate_max_length)
+            if args.critic_type == "drgrpo"
+            else masked_mean
+        )
+
+    # Dr. GRPO Modification 2: Remove difficulty bias by just computing the MC advantage without dividing by std:
+    def compute_monte_carlo_advantages(self, rewards):
+        rewards = rewards.sum(-1)
+        # Compute monte carlo trajectory-level advantage
+        values = rewards.view(-1, self.args.num_samples).mean(dim=1)
+        values = values.repeat_interleave(self.args.num_samples, dim=0)
+        advantages = rewards - values
+        return advantages
 
     def _apply_template(self, example):
         problem = example[self.args.input_key]
