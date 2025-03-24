@@ -30,11 +30,11 @@ python train_zero_math.py \
     --beta 0 \
     --oracle_type reward \
     --oracle math \
-    --pretrain Qwen/Qwen2.5-Math-1.5B \
+    --pretrain Qwen/Qwen2.5-Math-7B \
     --prompt_template r1 \
     --zero-stage 2 \
     --ref_offload \
-    --prompt_data ./datasets/train/math_12k \
+    --prompt_data ./datasets/train/math_lvl3to5_8k \
     --train_split train \
     --input_key problem \
     --output_key answer \
@@ -59,7 +59,7 @@ python train_zero_math.py \
     --eval_data ./datasets/evaluation_suite \
     --eval_input_key input \
     --use-wb \
-    --wb-run-name qwen2.5-Math-1.5b-r1-zero \
+    --wb-run-name qwen2.5-Math-7b-r1-zero \
     --wb_project oat-zero
 
 # Qwen-Math template
@@ -80,11 +80,11 @@ python train_zero_math.py \
     --beta 0 \
     --oracle_type reward \
     --oracle math \
-    --pretrain Qwen/Qwen2.5-Math-1.5B \
+    --pretrain Qwen/Qwen2.5-Math-7B \
     --prompt_template qwen_math \
     --zero-stage 2 \
     --ref_offload \
-    --prompt_data ./datasets/train/math_12k \
+    --prompt_data ./datasets/train/math_lvl3to5_8k \
     --train_split train \
     --input_key problem \
     --output_key answer \
@@ -109,5 +109,5 @@ python train_zero_math.py \
     --eval_data ./datasets/evaluation_suite \
     --eval_input_key input \
     --use-wb \
-    --wb-run-name qwen2.5-Math-1.5b-r1-zero-qwenmath_template \
+    --wb-run-name qwen2.5-Math-7b-r1-zero-qwenmath_template \
     --wb_project oat-zero
