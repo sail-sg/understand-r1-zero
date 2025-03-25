@@ -231,6 +231,6 @@ If you find our work useful for your research, please consider citing:
 
 ## Acknowledgement
 * This work is supported by [Sea AI Lab](https://sail.sea.com/) for computing resources.
-* The training codes are built on [Oat](https://github.com/sail-sg/oat), which employs [vLLM](https://github.com/vllm-project/vllm), [DeepSpeed](https://github.com/microsoft/DeepSpeed) and [launchpad](https://github.com/google-deepmind/launchpad).
+* The training codes are built on [Oat](https://github.com/sail-sg/oat), which employs [vLLM](https://github.com/vllm-project/vllm), [DeepSpeed](https://github.com/microsoft/DeepSpeed) and [launchpad](https://github.com/google-deepmind/launchpad). We serve DeepSeek models using [SGLang](https://github.com/sgl-project/sglang).
 * The base models are from [Qwen2.5-Math](https://huggingface.co/Qwen/Qwen2.5-Math-7B), [Llama](https://huggingface.co/meta-llama/Llama-3.2-3B), and [DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-V3-Base).
 * We thank [Qingfeng Lan](https://lancelqf.github.io/about/) for his time in thoroughly reviewing our code.
