@@ -244,12 +244,11 @@ If you find our works useful for your research, please consider citing:
 
 - The training framework:
 ```bibtex
-@misc{
-  liu2025oat,
+@misc{liu2025oat,
   title={OAT: A research-friendly framework for LLM online alignment},
   author={Zichen Liu and Changyu Chen and Chao Du and Wee Sun Lee and Min Lin},
-  howpublished={\url{https://github.com/sail-sg/oat}},
   year={2025}
+  howpublished={\url{https://github.com/sail-sg/oat}},
 }
 ```
 
