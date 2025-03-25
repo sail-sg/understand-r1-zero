@@ -59,8 +59,8 @@ python train_zero_math.py \
     --eval_data ./datasets/evaluation_suite \
     --eval_input_key input \
     --use-wb \
-    --wb-run-name qwen2.5-Math-7b-r1-zero \
-    --wb_project oat-zero
+    --wb_project oat-zero \
+    --wb-run-name qwen2.5-Math-7b-drgrpo-r1template
 
 # Qwen-Math template
 python train_zero_math.py \
@@ -109,5 +109,5 @@ python train_zero_math.py \
     --eval_data ./datasets/evaluation_suite \
     --eval_input_key input \
     --use-wb \
-    --wb-run-name qwen2.5-Math-7b-r1-zero-qwenmath_template \
-    --wb_project oat-zero
+    --wb_project oat-zero \
+    --wb-run-name qwen2.5-Math-7b-drgrpo-qwenmathtemplate
