@@ -32,6 +32,7 @@ python train_zero_math.py \
     --oracle math \
     --pretrain Qwen/Qwen2.5-Math-7B \
     --prompt_template r1 \
+    --verifier_version math_verify \
     --zero-stage 2 \
     --ref_offload \
     --prompt_data ./datasets/train/math_lvl3to5_8k \
@@ -82,6 +83,7 @@ python train_zero_math.py \
     --oracle math \
     --pretrain Qwen/Qwen2.5-Math-7B \
     --prompt_template qwen_math \
+    --verifier_version math_verify \
     --zero-stage 2 \
     --ref_offload \
     --prompt_data ./datasets/train/math_lvl3to5_8k \
