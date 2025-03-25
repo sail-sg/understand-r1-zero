@@ -183,6 +183,40 @@ python evaluate_model.py --model_name PRIME-RL/Eurus-2-7B-PRIME-Zero
 python evaluate_model.py --model_name Open-Reasoner-Zero/Open-Reasoner-Zero-7B
 ```
 
+### Serving DeepSeek Models
+
+We provide a script to serve DeepSeek-V3-Base and DeepSeek-R1-Zero on k8s cluster.
+
+```diff
+# prerequisites:
+# 1. download the model weights
+# 2. starting a k8s job with sglang docker image "lmsysorg/sglang:v0.4.3.post2-cu125"
+
+# start the server:
+bash deploy_dpsk/serving.sh <model_name> <num_nodes>
+```
+
+Example of API call: 
+```python
+from openai import OpenAI
+
+# MASTER_ADDR is the environment variable set by the k8s job
+api_base = "http://{MASTER_ADDR}:30000/v1"
+api_key = "EMPTY"
+
+client = OpenAI(
+    api_key=api_key,
+    base_url=api_base,
+)
+
+# send requests to the server ...
+```
+
+Notes:
+- Your k8s container should have environment variable `MASTER_ADDR` and `MASTER_PORT` set.
+- Hardware requirements: `2 x 8 x H100/800/20` for FP8 and `4 x 8 x A100/A800` for BF16.
+- Please refer to sglang's [official tutorial](https://docs.sglang.ai/references/deepseek.html) for more details.
+
 ## Citation
 
 If you find our work useful for your research, please consider citing:
