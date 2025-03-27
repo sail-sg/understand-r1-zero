@@ -221,11 +221,11 @@ If you find our works useful for your research, please consider citing:
 
 - This paper:
 ```bibtex
-@misc{liu2025understanding,
+@article{liu2025understanding,
   title={Understanding R1-Zero-Like Training: A Critical Perspective},
   author={Zichen Liu and Changyu Chen and Wenjun Li and Penghui Qi and Tianyu Pang and Chao Du and Wee Sun Lee and Min Lin},
-  year={2025},
-  howpublished={\url{https://github.com/sail-sg/understand-r1-zero}},
+  journal={arXiv preprint arXiv:2503.20783},
+  year={2025}
 }
 ```
 
