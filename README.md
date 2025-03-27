@@ -8,9 +8,7 @@
 
 *Core Contributors, †Project Lead
 
-[![Paper](https://img.shields.io/badge/Paper-8CA1AF?logo=readthedocs&logoColor=white)](./understand-r1-zero.pdf)
-
-[![Github](https://img.shields.io/badge/Understand%20R1%20Zero-000000?style=for-the-badge&logo=github&logoColor=000&logoColor=white)](https://github.com/sail-sg/understand-r1-zero)  [![Hugging Face Collection](https://img.shields.io/badge/Model_Collection-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2503.20783) [![Hugging Face Collection](https://img.shields.io/badge/Models-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
 
 <div align="center" style="font-family: Arial, sans-serif;">
   <p>
@@ -34,7 +32,7 @@
 ## Links
 
 * **Understanding R1-Zero-Like Training**
-  * 📄 [Paper](./understand-r1-zero.pdf)
+  * 📄 [Paper](https://arxiv.org/pdf/2503.20783)
   * 🤗 [Models](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
 
 * **There May Not Be Aha Moment in R1-Zero-like Training — A Pilot Study**
@@ -90,7 +88,7 @@ Math-7B using the (unbiased) Dr. GRPO algorithm on MATH level 3-5 questions with
   <img src="./assets/benchmark.png" width=90%/>
 </p>
 
-If you are interested in more details, please check out our [paper](./understand-r1-zero.pdf)!
+If you are interested in more details, please check out our [paper](https://arxiv.org/pdf/2503.20783)!
 
 ## Usage
 
