@@ -220,35 +220,35 @@ Notes:
 If you find our works useful for your research, please consider citing:
 
 - This paper:
-```bibtex
-@article{liu2025understanding,
-  title={Understanding R1-Zero-Like Training: A Critical Perspective},
-  author={Zichen Liu and Changyu Chen and Wenjun Li and Penghui Qi and Tianyu Pang and Chao Du and Wee Sun Lee and Min Lin},
-  journal={arXiv preprint arXiv:2503.20783},
-  year={2025}
-}
-```
+  ```bibtex
+  @article{liu2025understanding,
+    title={Understanding R1-Zero-Like Training: A Critical Perspective},
+    author={Zichen Liu and Changyu Chen and Wenjun Li and Penghui Qi and Tianyu Pang and Chao Du and Wee Sun Lee and Min Lin},
+    journal={arXiv preprint arXiv:2503.20783},
+    year={2025}
+  }
+  ```
 
 - Our blog that conducted the first investigation on the "Aha moment":
-```bibtex
-@misc{liu2025there,
-  title={There May Not be Aha Moment in R1-Zero-like Training — A Pilot Study},
-  author={Zichen Liu and Changyu Chen and Wenjun Li and Tianyu Pang and Chao Du and Min Lin},
-  year={2025},
-  howpublished={\url{https://oatllm.notion.site/oat-zero}},
-  note={Notion Blog},
-}
-```
+  ```bibtex
+  @misc{liu2025there,
+    title={There May Not be Aha Moment in R1-Zero-like Training — A Pilot Study},
+    author={Zichen Liu and Changyu Chen and Wenjun Li and Tianyu Pang and Chao Du and Min Lin},
+    year={2025},
+    howpublished={\url{https://oatllm.notion.site/oat-zero}},
+    note={Notion Blog},
+  }
+  ```
 
 - The training framework:
-```bibtex
-@misc{liu2025oat,
-  title={OAT: A research-friendly framework for LLM online alignment},
-  author={Zichen Liu and Changyu Chen and Chao Du and Wee Sun Lee and Min Lin},
-  year={2025}
-  howpublished={\url{https://github.com/sail-sg/oat}},
-}
-```
+  ```bibtex
+  @misc{liu2025oat,
+    title={OAT: A research-friendly framework for LLM online alignment},
+    author={Zichen Liu and Changyu Chen and Chao Du and Wee Sun Lee and Min Lin},
+    year={2025}
+    howpublished={\url{https://github.com/sail-sg/oat}},
+  }
+  ```
 
 ## Acknowledgement
 * This work is supported by [Sea AI Lab](https://sail.sea.com/) for computing resources.
