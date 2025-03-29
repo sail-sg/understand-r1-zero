@@ -67,7 +67,7 @@ while maintaining reasoning performance, termed as Dr. GRPO (GRPO **D**one **R**
 </p>
 
 4. In R1-Zero-like training, the template and the question set perform a duet to affect the RL dynamics
-   * (Left Plot) For Qwen2.5-Math-1.5B, a mismatched template (e.g., R1 template) in fact **destructs the reasoning capabilities before RL reconstructing it**. This makes the improvement impressive on the surface.
+   * (Left Plot) For Qwen2.5-Math-1.5B, a mismatched template (e.g., R1 template) in fact **destroys the reasoning capabilities before RL reconstructing it**. This makes the improvement impressive on the surface.
    * (Middle Plot) However, if a template does not deviate from the pretraining distribution too far, even a small and completely o.o.d. question set (e.g., GSM8K) could induce the reasoning ability equally well, by reinforcing correct reasoning behaviors instead of infusing new knowledge.
 <p align="center">
   <img src="./assets/template-data-duet.png" width=80%/>
