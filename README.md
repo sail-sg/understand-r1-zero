@@ -9,6 +9,7 @@
 *Core Contributors, †Project Lead
 
 [![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2503.20783) [![Hugging Face Collection](https://img.shields.io/badge/Models-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
+[![](https://dcbadge.limes.pink/api/server/pySTMT5HCS)](https://discord.gg/pySTMT5HCS) 
 
 <div align="center" style="font-family: Arial, sans-serif;">
   <p>
