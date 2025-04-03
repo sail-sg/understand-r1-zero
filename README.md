@@ -31,13 +31,15 @@
 
 ## Links
 
-* **Understanding R1-Zero-Like Training**
+* **Understanding R1-Zero-Like Training: A Critical Perspective**
   * 📄 [Paper](https://arxiv.org/pdf/2503.20783)
   * 🤗 [Models](https://huggingface.co/collections/sail/oat-zero-understanding-r1-zero-like-training-67dcdb07b9f3eb05f1501c4a)
+  * 🚀 [Release tweet](https://x.com/zzlccc/status/1903162768083259703)
 
 * **There May Not Be Aha Moment in R1-Zero-like Training — A Pilot Study**
   * 📄 [Blog](https://oatllm.notion.site/oat-zero)
   * 💻 [Code](https://github.com/sail-sg/oat-zero)
+  * 🚀 [Release tweet](https://x.com/zzlccc/status/1887557022771712308)
 
 * **OAT: A research-friendly framework for LLM online alignment**
   * 💻 [Codebase](https://github.com/sail-sg/oat)
