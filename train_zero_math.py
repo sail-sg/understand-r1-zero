@@ -312,8 +312,8 @@ class ZeroMathLearner(PPOLearner):
 
     def prepare_data(self, strategy, tokenizer):
         prompt_dataset = load_data_from_disk_or_hf(self.args.prompt_data)
-        prompts_data = prompt_dataset[args.train_split].select(
-            range(min(args.max_train, len(prompt_dataset[args.train_split])))
+        prompts_data = prompt_dataset[self.args.train_split].select(
+            range(min(self.args.max_train, len(prompt_dataset[self.args.train_split])))
         )
 
         # Prepare the data: templated questions & gt final answers.
@@ -323,14 +323,14 @@ class ZeroMathLearner(PPOLearner):
             prompts_data,
             tokenizer,
             strategy,
-            input_key=args.input_key,
-            output_key=args.output_key,
+            input_key=self.args.input_key,
+            output_key=self.args.output_key,
             apply_chat_template=False,  # Because we have applied already.
             get_reference=True,
         )
         self.prompts_dataloader = strategy.setup_dataloader(
             self.prompts_dataset,
-            strategy.args.rollout_batch_size_per_device,
+            self.args.rollout_batch_size_per_device,
             pin_memory=True,
             shuffle=True,
         )
@@ -345,7 +345,7 @@ class ZeroMathLearner(PPOLearner):
         for item in item_list:
             problems.append(item["problem"])
             formatted_problems.append(
-                TEMPLATE_FACTORY[args.prompt_template](item["problem"])
+                TEMPLATE_FACTORY[self.args.prompt_template](item["problem"])
             )
             answers.append(item["answer"])
         return formatted_problems, problems, answers
