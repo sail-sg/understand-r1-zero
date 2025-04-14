@@ -225,8 +225,8 @@ If you find our works useful for your research, please consider citing:
 - This paper:
   ```bibtex
   @article{liu2025understanding,
-    title={Understanding R1-Zero-Like Training: A Critical Perspective},
-    author={Zichen Liu and Changyu Chen and Wenjun Li and Penghui Qi and Tianyu Pang and Chao Du and Wee Sun Lee and Min Lin},
+    title={Understanding r1-zero-like training: A critical perspective},
+    author={Liu, Zichen and Chen, Changyu and Li, Wenjun and Qi, Penghui and Pang, Tianyu and Du, Chao and Lee, Wee Sun and Lin, Min},
     journal={arXiv preprint arXiv:2503.20783},
     year={2025}
   }
@@ -236,7 +236,7 @@ If you find our works useful for your research, please consider citing:
   ```bibtex
   @misc{liu2025there,
     title={There May Not be Aha Moment in R1-Zero-like Training — A Pilot Study},
-    author={Zichen Liu and Changyu Chen and Wenjun Li and Tianyu Pang and Chao Du and Min Lin},
+    author={Liu, Zichen and Chen, Changyu and Li, Wenjun and Pang, Tianyu and Du, Chao and Lin, Min},
     year={2025},
     howpublished={\url{https://oatllm.notion.site/oat-zero}},
     note={Notion Blog},
@@ -247,7 +247,7 @@ If you find our works useful for your research, please consider citing:
   ```bibtex
   @misc{liu2025oat,
     title={OAT: A research-friendly framework for LLM online alignment},
-    author={Zichen Liu and Changyu Chen and Chao Du and Wee Sun Lee and Min Lin},
+    author={Liu, Zichen and Chen, Changyu and Du, Chao and Lee, Wee Sun and Lin, Min},
     year={2025}
     howpublished={\url{https://github.com/sail-sg/oat}},
   }
