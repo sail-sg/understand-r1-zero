@@ -247,7 +247,7 @@ If you find our works useful for your research, please consider citing:
   ```bibtex
   @misc{liu2024oat,
     title={OAT: A research-friendly framework for LLM online alignment},
-    author={Liu, Zichen and Chen, Changyu and Du, Chao and Lee, Wee Sun and Lin, Min},
+    author={Liu, Zichen and Chen, Changyu and Wan, Xinyi and Du, Chao and Lee, Wee Sun and Lin, Min},
     year={2024}
     howpublished={\url{https://github.com/sail-sg/oat}},
   }
