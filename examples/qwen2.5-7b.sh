@@ -12,16 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+N_GPU=8
+N_SAMPLE=8
+
 # Dr. GRPO to verify https://x.com/_lewtun/status/1910581060385091823.
 python train_zero_math.py \
     --critic_type drgrpo \
     --pretrain Qwen/Qwen2.5-7B \
     --prompt_data all@open-r1/Big-Math-RL-Verified-Processed \
-    --num_samples 8 \
+    --num_samples $N_SAMPLE \
     --temperature 1 \
     --top_p 1 \
     --generate_max_length 3000 \
-    --gpus 8 \
+    --gpus $N_GPU \
     --enable_prefix_caching \
     --collocate \
     --vllm_sleep \
@@ -49,8 +52,8 @@ python train_zero_math.py \
     --train_batch_size 128 \
     --train_batch_size_per_device 1 \
     --rollout_batch_size 128 \
-    --rollout_batch_size_per_device 16 \
-    --pi_buffer_maxlen_per_device 128 \
+    --rollout_batch_size_per_device $((128 / N_GPU)) \
+    --pi_buffer_maxlen_per_device $((128 * N_SAMPLE / N_GPU)) \
     --eval_batch_size 200 \
     --eval_steps 16 \
     --eval_temperature 0 \
