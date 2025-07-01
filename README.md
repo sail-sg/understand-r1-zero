@@ -101,7 +101,7 @@ We recommend a clean `python==3.10` environment for development.
 
 ```diff
 # Install vllm & oat, the LLM RL framework we developed r1-zero training on.
-pip install vllm==0.7.2 && pip install oat-llm==0.0.9
+pip install vllm==0.8.4 && pip install oat-llm==0.1.3.post1
 
 # Install this package locally to use the math grader.
 git clone git@github.com:sail-sg/understand-r1-zero.git && cd understand-r1-zero
@@ -153,7 +153,6 @@ python train_zero_math.py \
     --save_steps -1 \
     --train_batch_size 128 \
     --train_batch_size_per_device 1 \
-    --mini_train_batch_size_per_device 1 \
     --rollout_batch_size 128 \
     --rollout_batch_size_per_device 16 \
     --pi_buffer_maxlen_per_device 128 \

@@ -151,20 +151,21 @@ class ZeroMathArgs(PPOArgs):
 
 
 class ZeroMathActor(PPOActor):
-    def __init__(self, ipc_server, vllm_args, args: ZeroMathArgs) -> None:
-        super().__init__(ipc_server, vllm_args, args)
+    def init(self, actor_id, save_path):
+        super().init(actor_id, save_path)
 
         self.oracle = MATHOracle(
-            template=args.prompt_template, verifier_version=args.verifier_version
+            template=self.args.prompt_template,
+            verifier_version=self.args.verifier_version,
         )
 
-        if args.prompt_template in ["qwen_math", "no"]:
+        if self.args.prompt_template in ["qwen_math", "no"]:
             # These two templates are better used for Qwen models, which can themselves stop generation. Hence we unset all external stopping conditions.
             self.sampling_params.stop = None
             self.sampling_params.stop_token_ids = None
             self.eval_sampling_params.stop = None
             self.eval_sampling_params.stop_token_ids = None
-        elif args.prompt_template == "r1":
+        elif self.args.prompt_template == "r1":
             # Let's stop when the model completes its answer.
             self.sampling_params.stop = ["</answer>"]
             self.sampling_params.include_stop_str_in_output = True
@@ -290,7 +291,8 @@ class ZeroMathLearner(PPOLearner):
         )
 
     # Dr. GRPO Modification 2: Remove difficulty bias by just computing the MC advantage without dividing by std:
-    def compute_monte_carlo_advantages(self, rewards):
+    def compute_monte_carlo_advantages(self, rewards, response_masks):
+        del response_masks
         rewards = rewards.sum(-1)
         # Compute monte carlo trajectory-level advantage
         values = rewards.view(-1, self.args.num_samples).mean(dim=1)
