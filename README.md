@@ -28,6 +28,7 @@
 
 ## Updates
 
+* 18/07/2025: We are honored to receive the **Best Paper Honorable Mention** [award](https://sites.google.com/view/ai4mathworkshopicml2025/awards) from ICML 2025 AI for Math Workshop!
 * 21/03/2025: 🎉 We release our paper, models and codebase. Our R1-Zero training is implemented with 🌾 [Oat](https://github.com/sail-sg/oat), a highly modular, research-friendly and efficient LLM RL framework.
 
 ## Links
