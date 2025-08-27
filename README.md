@@ -224,10 +224,10 @@ If you find our works useful for your research, please consider citing:
 
 - This paper:
   ```bibtex
-  @article{liu2025understanding,
+  @inproceedings{liu2025understanding,
     title={Understanding r1-zero-like training: A critical perspective},
     author={Liu, Zichen and Chen, Changyu and Li, Wenjun and Qi, Penghui and Pang, Tianyu and Du, Chao and Lee, Wee Sun and Lin, Min},
-    journal={arXiv preprint arXiv:2503.20783},
+    booktitle={Conference on Language Modeling (COLM)},
     year={2025}
   }
   ```
